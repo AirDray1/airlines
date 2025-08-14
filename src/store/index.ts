@@ -1,4 +1,3 @@
-// store/index.ts
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer, { setCart } from './cartSlice';
 import favoritesReducer from './favouritesSlice';
@@ -19,7 +18,7 @@ if (saved) {
   try {
     const parsed = JSON.parse(saved);
     if (Array.isArray(parsed)) {
-      store.dispatch(setCart(parsed)); // ✅ тільки якщо це масив
+      store.dispatch(setCart(parsed));
     }
   } catch {
     console.warn('Помилка парсингу localStorage');

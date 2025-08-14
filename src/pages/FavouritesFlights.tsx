@@ -1,18 +1,21 @@
+import { Grid, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
+import { FlightCard } from '../components/FlightCard';
 
 const FavoritesPage = () => {
   const favorites = useSelector((state: RootState) => state.favorites.items);
 
   if (favorites.length === 0) {
-    return <p>Немає обраних рейсів</p>;
+    return <Typography sx={{ p: 2 }}>Немає обраних рейсів</Typography>;
   }
 
   return (
-    <div>
-      <h2>Обране</h2>
-      
-    </div>
+    <Grid container spacing={2} sx={{ p: 2 }}>
+      {favorites.map((flight) => (
+        <FlightCard key={flight.id} flight={flight} />
+      ))}
+    </Grid>
   );
 };
 

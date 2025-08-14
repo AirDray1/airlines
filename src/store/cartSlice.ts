@@ -12,7 +12,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  tickets: [], // ✅ має бути масив
+  tickets: [],
 };
 
 const cartSlice = createSlice({
